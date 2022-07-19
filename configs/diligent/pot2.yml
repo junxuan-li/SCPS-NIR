@@ -1,0 +1,60 @@
+dataset:
+  data_path: data/DiLiGenT/pmsData/pot2PNG
+  gray_scale: false
+  shadow_threshold: 0.1
+  sparse_input: null
+  sparse_input_random_seed: null
+experiment:
+  batch_size: 8 * 1
+  cuda: cuda:0
+  end_epoch: 2000
+  eval_every_iter: 50
+  log_path: ./runs/diligent/pot2
+  randomseed: null
+  save_every_epoch: 500
+  start_epoch: 1
+loss:
+  contour_factor: 0.1
+  diff_tv_factor: 0.01
+  normal_tv_factor: 0.01
+  regularize_epoches: 0.25
+  rgb_loss: l1
+  spec_coeff_factor: 0.0
+  spec_tv_factor: 0.01
+models:
+  checkpoint_path: null
+  light_model:
+    explicit_direction: true
+    explicit_intensity: true
+    hidden_size: 64
+    ld_noise: 0
+    li_noise: 0
+    load_pretrain: runs/pre_trained_LNet/model_params.pth
+    num_layers: 3
+    skip_connect_every: 8
+    type: Light_Model_CNN
+  load_checkpoint: false
+  nerf:
+    hidden_size: 256
+    include_input_input1: 2
+    include_input_input2: 0
+    num_encoding_fn_input1: 10
+    num_encoding_fn_input2: 0
+    num_layers: 8
+    skip_connect_every: 3
+  specular:
+    dynamic_basis: true
+    k_high: 300
+    k_low: 10
+    num_basis: 12
+    trainable_k: true
+    type: Spherical_Gaussian
+  use_mean_var: true
+  use_onlydiffuse: false
+  use_onlyspecular: false
+optimizer:
+  lr: 0.001
+  type: Adam
+scheduler:
+  gamma: 1
+  step_size: 500000

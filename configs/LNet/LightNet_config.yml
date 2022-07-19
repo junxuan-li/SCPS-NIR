@@ -1,0 +1,54 @@
+# Parameters to setup experiment.
+experiment:
+  # Experiment logs will be stored at "log_path"
+  log_path: ./runs/LNet
+  cuda: cuda:0
+  # Seed for random number generators (for repeatability).
+  randomseed:
+  # Number of training iterations.
+  start_epoch: 1
+  end_epoch: 100
+  # Number of rays to use per iteration, i.e. batch size
+  batch_size: 64 * 1  # 173163 *
+  # Number of training iterations after which to checkpoint.
+  print_every_iter: 100
+  save_every_epoch: 10
+  eval_every_epoch: 1
+
+# scheduler params.
+scheduler:
+  # Change is learning rate Per ? epoch
+  step_size: 25
+  # rate that learning rate degrade, 1 is not changing
+  gamma: 0.5
+
+# Model parameters.
+models:
+  # options: {LNet, Light_Model_CNN}
+  type: Light_Model_CNN
+  batchNorm: False
+
+  load_checkpoint: False
+  checkpoint_path:
+
+# indexer params.
+loss:
+  # Name of loss function
+  ints_alpha: 1.0
+
+# Optimizer params.
+optimizer:
+  # Name of the torch.optim class used for optimization.
+  type: Adam
+  # Learning rate.
+  lr: 5.0E-4
+
+# Dataset parameters.
+dataset:
+  # Base directory of dataset.
+  data_path1: ./SDPS-Net/data/datasets/PS_Sculpture_Dataset
+  data_path2: ./SDPS-Net/data/datasets/PS_Blobby_Dataset
+  gray_scale: True
+
+
+
