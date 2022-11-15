@@ -105,7 +105,8 @@ If you find our code or paper useful, please cite as
     @inproceedings{li2022selfps,
       title={Self-calibrating Photometric Stereo by Neural Inverse Rendering},
       author={Li, Junxuan and Li, Hongdong},
-      booktitle={European conference on computer vision},
+      booktitle={European Conference on Computer Vision},
+      pages={166--183},
       year={2022},
       organization={Springer}
     }
